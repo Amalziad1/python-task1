@@ -65,22 +65,11 @@ for i in range(5):
     f2=open(filename2,"w")
 
     f2.write("Hello "+first_name+" "+last_name+" welcome to file "+str(i+1)+".B\n")
-
     #returning to tmp directory
-
     current_directory = os.getcwd()
-
     #get the parent directory by splitting the path and taking all but the last part
-
     parent_directory = os.path.dirname(current_directory)
-
     #change the current working directory to the parent directory
-
     os.chdir(parent_directory)
-
-    
-
-    
-
-    
-
+    f1.close()
+    f2.close()

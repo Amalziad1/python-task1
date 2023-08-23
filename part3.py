@@ -4,71 +4,29 @@ import argparse
 
 
 
-def help():
-
-    print("Help Message: ")
-
-    print("  -f   First name ")
-
-    print("  -l   Last name ")
-
-    print("  [ -c  Capitalize the first letter of the first and last name ] ")
-
-    print("  [ -H   Display this help message ]")
-
 parser=argparse.ArgumentParser()
 
-parser.add_argument('-f', '--first_name')
+parser.add_argument('-f', '--first_name',required=True)
 
-parser.add_argument('-l', '--last_name')
+parser.add_argument('-l', '--last_name',required=True)
 
 parser.add_argument('-c', '--capitalize', action='store_true')
 
-parser.add_argument('-H', '--help_message', action='store_true')
+
+
+args = parser.parse_args()
 
 
 
-try:
+first_name = args.first_name
 
-    args = parser.parse_args()
+last_name = args.last_name
 
-    if args.help_message:
+if args.capitalize:
 
-        help()
+    first_name = first_name.capitalize()
 
-        exit(0)
-
-    if args.first_name is None or args.last_name is None:
-
-        print("Error: missing first name or last name")
-
-        help()
-
-        exit(1)
-
-    if not args.first_name.isalpha() or not args.last_name.isalpha():
-
-        print("Error: names must only contain alphabetical characters")
-
-        help()
-
-        exit(1)
-
-    first_name = args.first_name
-
-    last_name = args.last_name
-
-    if args.capitalize:
-
-        first_name = first_name.capitalize()
-
-        last_name = last_name.capitalize()
-
-except argparse.ArgumentError as e:
-
-    print("Error:", e)
-
-    help()
+    last_name = last_name.capitalize()
 
 #===================================
 
@@ -138,9 +96,6 @@ for i in range(5):
 
     os.chdir(parent_directory)
 
-    
+    f1.close()
 
-    
-
-    
-
+    f2.close()

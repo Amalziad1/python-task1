@@ -84,6 +84,10 @@ for i in range(5):
 
     os.chdir(parent_directory)
 
+    f1.close()
+
+    f2.close()
+
     
 
     
